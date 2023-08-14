@@ -2,12 +2,13 @@ const fs = require('fs');
 const path = require('path');
 const expressapp=require('./expressserver.js')
 
+
 function createfile(filePath, content = '') {
     const resolvedPath = path.resolve(filePath);
     const folderPath = path.dirname(resolvedPath);
   
     if (!fs.existsSync(folderPath)) {
-      // Create the folder if it doesn't exist
+      
       fs.mkdirSync(folderPath, { recursive: true });
     }
     else if (!fs.statSync(folderPath).isDirectory()) {
@@ -30,4 +31,5 @@ module.exports = {
   createfile,
   createfolder,
   expressapp,
+
 };
