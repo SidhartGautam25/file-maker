@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
+const expressapp=require('./expressserver.js')
 
-function createFile(filePath, content = '') {
+function createfile(filePath, content = '') {
     const resolvedPath = path.resolve(filePath);
     const folderPath = path.dirname(resolvedPath);
   
@@ -17,14 +18,16 @@ function createFile(filePath, content = '') {
     fs.writeFileSync(resolvedPath, content, 'utf-8');
 }
 
-function createFolder(folderPath) {
+function createfolder(folderPath) {
   const resolvedPath = path.resolve(folderPath);
   if (!fs.existsSync(resolvedPath)) {
     fs.mkdirSync(resolvedPath);
   }
 }
 
+
 module.exports = {
-  createFile,
-  createFolder,
+  createfile,
+  createfolder,
+  expressapp,
 };
